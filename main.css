@@ -4,7 +4,10 @@ body{
 }
 
 /* STARTSIDAN*/
-
+.topleftmenu{
+    background-color:rgba(42, 104, 238, 0.808);
+    color: white;
+}
 
 /* UTFORSKASIDAN*/
 
