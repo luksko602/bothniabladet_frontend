@@ -1,14 +1,26 @@
+
+/*CSS som berör alla sidor i applikationen*/
 body{
     background-color: white;
     color: rgba(42, 104, 238, 0.808);
 }
 
-/* STARTSIDAN*/
 .topleftmenu{
     background-color:rgba(42, 104, 238, 0.808);
     color: white;
     position: absolute;
 }
+
+.toprightmenu{
+    background-color:rgba(42, 104, 238, 0.808);
+    color: white;
+}
+#search{
+    
+}
+
+/* STARTSIDAN*/
+
 
 /* UTFORSKASIDAN*/
 
