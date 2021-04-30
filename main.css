@@ -8,25 +8,71 @@ body{
 .topleftmenu{
     background-color:rgba(42, 104, 238, 0.808);
     color: white;
-    position: absolute;
+}
+.topleftmenu a{
+    text-decoration: none;
+}
+.topleftmenu a:hover{
+    color: black;
+}
+.topleftmenu a:visited{
+    color: white;
 }
 
+#startpagelink{
+    position: relative;
+}
+#explorelink{
+    position: relative;
+    left: 25%;
+    bottom: 50px;
+}
+#gallerylink{
+    position: relative;
+    left: 40%;
+    bottom: 95px;
+}
+#contactlink{
+    position: relative;
+    left: 60%;
+    bottom: 140px;
+}
+/* Menyn i övre högra hörnet */
 .toprightmenu{
     background-color:rgba(42, 104, 238, 0.808);
     color: white;
-}
-#search{
+    position: absolute;
+    right: 50px;
+    top: 20px;
     
+}
+/*Söksymbolen */
+#search{
+    position: relative;
+}
+/* Notifikationsklockan*/
+#notifications{
+    position: relative;
+    left: 100%;
+    bottom: 25px;
+}
+/*Footer på alla sidor*/
+.companyinfo{
+    background-color:rgba(42, 104, 238, 0.808);
+    color: white;
 }
 
 /* STARTSIDAN*/
 .startpageinfo{
-
+    position: relative;
+    left: 30%;
+    bottom: 10%;
 }
 
 .news{
     
 }
+
 /* UTFORSKASIDAN*/
 
 
