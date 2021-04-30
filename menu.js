@@ -1,0 +1,1 @@
+/*Javascript-kod för huvudmenyn som återkommer på alla sidor */
