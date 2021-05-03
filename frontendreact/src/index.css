@@ -11,3 +11,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.topleftmenu{
+  background-color:rgba(42, 104, 238, 0.808);
+  color: white;
+}
+.topleftmenu a{
+  text-decoration: none;
+}
+.topleftmenu a:hover{
+  color: black;
+}
+.topleftmenu a:visited{
+  color: white;
+}
+
+#startpagelink{
+  position: relative;
+}
+#explorelink{
+  position: relative;
+  left: 25%;
+  bottom: 50px;
+}
+#gallerylink{
+  position: relative;
+  left: 40%;
+  bottom: 95px;
+}
+#contactlink{
+  position: relative;
+  left: 60%;
+  bottom: 140px;
+}
