@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM, { render } from 'react-dom';
 
+
+
+
 //STARTSIDAN
 class StartPage extends React.Component{
 
@@ -34,7 +37,7 @@ class StartPage extends React.Component{
 };
 
 const startsida = new StartPage();
-startsida.displaycontent();
+startsida.render();
 
 ReactDOM.render(<StartPage/>, document.getElementById('root'));
 
