@@ -1,52 +1,51 @@
-import React, {useState } from 'react';
-import ReactDOM from 'react-dom';
+import logo from './logo.svg';
 import './App.css';
-import axios from 'axios';
+import React from 'react';
 
-class Member extends React.Component{
-    
-    apiURL = ''; //URL till API
-    state = {
-        members: [] //Tom medlemslista som sedan fylls på med
-        //info ur medlemsentiteten i mysqldatabasen
-    }
+/*Klass för att hämta innehåll från databasen för att visa i 
+front-end */
+class FetchContent extends React.Component{
 
-    componentDidMount() {
-        axios.get(this.apiURL)
-        .then(result => {
-            const members = result.data;
-            this.setState({members});
-        })
-    }
+  //Fetch Images
+  fetchImages = async() =>{
+    const res = await fetch(
+      "http://localhost/bothniabladet/Bothniabladet_backend/server/api/image/read.php"
+    );
+    const data = await res.json();
+    this.setState({ ImageData: data });
+  };
 
-    render(){
-        return( 
-        
-        <ul>
-            { this.state.members.map(member => 
-            <li> {member.ID_member}</li>)}
-        </ul>
-        );
-    }
-}
-
-ReactDOM.render(<Member/>, document.getElementById('root'))
-
-class App extends React.Component {
-    
-    render(){
-        return <h1> TEST </h1>
-        
-    }
+  //Fetch Members
 }
 
 
-const app = new App();
-app.render();
+function App() {
+  var fetchcontent = new FetchContent();
+  fetchcontent.fetchImages();
+  
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        
+        
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
 
-//ReactDOM.render(<app />, document.getElementById('root'));
+          
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
+}
 
-
-
-//export default App;
+export default App;
 
