@@ -4,7 +4,6 @@ class TopLeftMenu extends React.Component{
 
     render(){
       return <div class="topleftmenu">
-          
           <div id="startpagelink"> 
               <h1> <a href="index.html"> Bothniabladet</a> </h1>
           </div>
