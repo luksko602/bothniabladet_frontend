@@ -1,37 +1,58 @@
 import logo from './logo.svg';
 import './App.css';
-import React from 'react';
+import React, { useEffect } from 'react';
+import axios from 'axios';
 
-/*Klass för att hämta innehåll från databasen för att visa i 
-front-end */
-class FetchContent extends React.Component{
+ 
+//Hämta bilder ur backend
+   var fetchImages = async() =>{
 
-  //Fetch Images
-  fetchImages = async() =>{
-    const res = await fetch(
-      "http://localhost/bothniabladet/Bothniabladet_backend/server/api/image/read.php"
-    );
+
+    const url = "http://localhost:8080/bothniabladet/Bothniabladet_backend/server/api/member/read.php";
+    const res = await fetch(url);
     const data = await res.json();
-    this.setState({ ImageData: data });
-  };
 
-  //Fetch Members
-}
+    this.setState( { imageData: data });
+    };
+
+    //Hämta medlemmar ur backend
+    var fetchMembers = async() => {
+      const res = await fetch(
+        "http://localhost:8080/bothniabladet/Bothniabladet_backend/server/api/member/read.php"
+      );
+      const data = await res.json();
+      this.setState( {memberData: data});
+    };
 
 
 function App() {
-  var fetchcontent = new FetchContent();
-  fetchcontent.fetchImages();
-  
+ 
+
   return (
+    
     <div className="App">
+      <h1> TestFetch</h1>
+      <h2> Hämta bilder och medlemmar ur backend</h2>
+
+
+      <div>
+        <button className="fetchImagesBtn" onClick={fetchImages}>
+          Hämta bilder
+        </button>
+        <button className="fetchMembersBtn" onClick ={fetchMembers}>
+        Hämta medlemmar </button>
+      </div>
+
+
+      
+      
+
+
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         
-        
         <p>
           Edit <code>src/App.js</code> and save to reload.
-
           
         </p>
         <a
@@ -44,6 +65,8 @@ function App() {
         </a>
       </header>
     </div>
+
+    
   );
 }
 
