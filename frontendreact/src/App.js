@@ -20,7 +20,7 @@ function App() {
     setLoading(false);
   }, []);
 
-  //Returnerar det första lagrade förnamnet i databasen. Om ingen koppling till databasen finns så returneras "...laddar medlem" istället
+
   return (
     <React.Fragment>
     <TopLeftMenu/>
@@ -34,22 +34,6 @@ function App() {
     
   );
   
- 
-  // return (
-  //   <main className="content"> 
-  //     <h1> TestFetch</h1>
-  //     <h2> Hämta bilder och medlemmar ur backend</h2>
-  //   <div>
-  //        <button className="fetchImagesBtn" onClick={fetchImages}>
-  //          Hämta bilder
-  //        </button>
-  //       <button className="fetchMembersBtn" onClick ={fetchMembers}>
-  //        Hämta medlemmar </button>
-  //        <button className="countBtn" onClick = {Count}>Test
-  //        </button>
-  //      </div>
-  //   </main>    
-  // );
 }
 
 export default App;
