@@ -32,15 +32,15 @@ code {
 #explorelink{
   position: relative;
   left: 25%;
-  bottom: 50px;
+  bottom: 60px;
 }
 #gallerylink{
   position: relative;
   left: 40%;
-  bottom: 95px;
+  bottom: 110px;
 }
 #contactlink{
   position: relative;
   left: 60%;
-  bottom: 140px;
+  bottom: 160px;
 }

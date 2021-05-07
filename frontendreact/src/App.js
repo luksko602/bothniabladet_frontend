@@ -3,61 +3,13 @@ import './App.css';
 import React, {useEffect, useState } from 'react';
 import TopLeftMenu from './Components/TopLeftMenu';
 import TopRightMenu from './Components/TopRightMenu';
+import Footer from './Components/Footer';
 import axios from 'axios'; 
-
-
-const FetchMembers =(url) => {
-  const [member, setMember] = useState(null);
-  const[loading, setLoading] = useState(true);
-
-  useEffect(async() => {
-    const response = await fetch('http://localhost:8080/bothniabladet/Bothniabladet_backend/server/api/member/read.php');
-    const data = await response.json();
-    const[item] = data.results;
-    setMember(item);
-    setLoading(false);
-
-  }, []);
-
-  return {};
-}
-
-
-
-//Hämta bilder ur backend
-   const fetchImages = async() =>{
-    const urlImages= "http://localhost:8080/bothniabladet/Bothniabladet_backend/server/api/images/read.php";
-    const res = await fetch(urlImages);
-    const data = await res.json();
-
-    this.setState( { imageData: data });
-    };
-
-    //Hämta medlemmar ur backend
-    // const fetchMembers = async() => {
-    //   const urlMembers = "http://localhost:8080/bothniabladet/Bothniabladet_backend/server/api/member/read.php";
-    //   const res = await fetch(urlMembers);
-    //   const data = await res.json();
-    //   this.setState( {memberData: data});
-    // };
-
-//Ej färdig funktion
-function FetchFromMember() {
-  const[member, setMember]= useState(null);
-
-  useEffect(async() => {
-    const response = await fetch("http://localhost:8080/bothniabladet/Bothniabladet_backend/server/api/member/read.php");
-    const memberinfo = await response.json();
-    const[item] = memberinfo.data;
-    setMember(item);
-  }, []);
-}
-
 
  
 function App() {
 
-  //Kod för fetch och display av api. 
+  // //Kod för fetch och display av en medlem ur api. 
   const[member, setMember] = useState(null);
   const[loading, setLoading] = useState(true);
   useEffect(async() => {
@@ -70,9 +22,16 @@ function App() {
 
   //Returnerar det första lagrade förnamnet i databasen. Om ingen koppling till databasen finns så returneras "...laddar medlem" istället
   return (
+    <React.Fragment>
+    <TopLeftMenu/>
+    <TopRightMenu/>
+    <Footer/>
+
     <div>
       {loading ? <div> ...laddar medlem </div> : <div>{member.first_name} </div>}  
     </div>
+    </React.Fragment>
+    
   );
   
  
