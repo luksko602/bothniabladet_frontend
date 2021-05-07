@@ -44,3 +44,12 @@ code {
   left: 60%;
   bottom: 160px;
 }
+
+
+/* FOOTER*/
+#footer{
+  background-color: rgba(42, 104, 238, 0.808);
+  color: white;
+  position: absolute;
+  bottom: 0%;
+}
