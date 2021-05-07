@@ -11,19 +11,9 @@ import axios from 'axios';
 function App() {
   // //Kod för fetch och display av en medlem ur api. 
   const[member, setMember] = useState(null);
-  const[loading, setLoading] = useState(true);
+  const[loadingMember, setLoadingMember] = useState(true);
+  const[loadingImage, setLoadingImage] = useState(true);
   
-  //Fetch av bilder
-  var fetchURL = 'http://localhost:8080/bothniabladet/Bothniabladet_backend/server/api/image/read.php';
-  fetch(fetchURL)
-  .then(res => res.blob())
-  .then(blob => {
-    let img = document.createElement('img');
-    img.src = URL.createObjectURL(blob);
-    document.querySelector("body").appendChild(img);
-  })
-
-
 
  //useEffect för medlemshämtning
   useEffect(async() => {  
@@ -32,21 +22,37 @@ function App() {
     const datainfo = await response.json();
     const[item] = datainfo.data;
     setMember(item);
-    setLoading(false);
+    setLoadingMember(false);
   }, []);
 
 
+  // const[image, setImage] = useState(null);
+  // // //Fetch av bilder
+  var fetchURL = 'http://localhost:8080/bothniabladet/Bothniabladet_backend/server/api/image/read.php';
+  fetch(fetchURL)
+  .then(res => res.blob())
+  .then(blob => {
+    let img = document.createElement('img');
+    img.src = URL.createObjectURL(blob);
+    document.querySelector("body").appendChild(img);
+  });
+
+
+
   return (
+
+    //Visa komponenter
     <React.Fragment>
     <TopLeftMenu/>
     <TopRightMenu/>
     <Footer/>
-
-    
     
     <div>
-      {loading ? <div> ...laddar medlem </div> : <div>{member.first_name} </div>}  
+      {loadingMember ? <div> ...laddar medlem </div> : <div>{member.last_name} </div>}  
     </div>
+
+  
+
 
     </React.Fragment>
     
