@@ -14,17 +14,19 @@ import axios from 'axios';
  
 function App() {
 
-
+  const memberReadAPI = 'http://localhost:8080/bothniabladet/Bothniabladet_backend/server/api/member/read.php';
   
   // //Kod för fetch och display av en medlem ur api. 
   const[member, setMember] = useState(null);
   const[loadingMember, setLoadingMember] = useState(true);
 
  //useEffect för medlemshämtning
-  useEffect(async() => {  
+  useEffect(async() => {
+
     //Hämta medlem genom fetch
-    const response = await fetch("http://localhost:8080/bothniabladet/Bothniabladet_backend/server/api/member/read.php");
+    const response = await fetch(memberReadAPI);
     const datainfo = await response.json();
+
     const[item] = datainfo.data;
 
 
@@ -33,10 +35,13 @@ function App() {
   }, []);
 
 
+
+
+
   // const[image, setImage] = useState(null);
   // // //Fetch av bilder
-  var fetchURL = 'http://localhost:8080/bothniabladet/Bothniabladet_backend/server/api/image/read.php';
-  fetch(fetchURL)
+  var fetchImageAPI = 'http://localhost:8080/bothniabladet/Bothniabladet_backend/server/api/image/read.php';
+  fetch(fetchImageAPI)
   .then(res => res.blob())
   .then(blob => {
     let img = document.createElement('img');
@@ -55,10 +60,48 @@ function App() {
     <StartPage/>
     <Footer/>
 
-
-    <div>
-      {loadingMember ? <div> ...laddar medlem </div> : <div key={member.ID_member}>{member.last_name} </div>}  
+    <div id="displayImage">
+      <h1> Visa en bild </h1>
+      
     </div>
+
+    <div id="displayMember">
+      <h1> Medlemstabell</h1>
+      {loadingMember ? <div> Laddar medlemmar... </div> : 
+      <div key={member.ID_member}> <table> 
+        <tr> 
+          <th> ID </th>
+          <th> Lösenord</th>
+          <th>Förnamn </th>
+          <th> Efternamn </th>
+          <th> Stad </th>
+          <th> Postnummer</th>
+          <th> Gata </th>
+          <th> Telefon </th>
+          <th> E-post </th>
+          <th> Discount_amount </th>
+
+        </tr>
+        <tr>
+          <td> {member.ID_member}</td>
+          <td> {member.password}</td>
+          <td> {member.first_name}</td>
+          <td> {member.last_name}</td>
+          <td> {member.city} </td>
+          <td> {member.postal}</td>
+          <td> {member.street} </td>
+          <td> {member.phone} </td>
+          <td> {member.email} </td>
+          <td> {member.discount_amount}</td>
+        </tr>
+        </table> 
+        
+        </div>}
+    </div>
+
+    {/* <div>
+      {loadingMember ? <div> ...laddar medlem </div> : <div key={member.ID_member}>{member.last_name} </div>}  
+    </div> */}
 
     </React.Fragment>
 
