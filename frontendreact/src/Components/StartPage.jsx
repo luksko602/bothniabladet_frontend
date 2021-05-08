@@ -2,7 +2,7 @@ import React from 'react';
 /*STARTSIDAN */
 class StartPage extends React.Component{
     render(){
-        return <div id="startpagecontent">
+        return <div class="startpagecontent">
             <div id="newinfo">
                 <h1> Lorem ipsum</h1>
                 <p> Lorem ipsum</p>

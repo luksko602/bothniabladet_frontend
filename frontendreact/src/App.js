@@ -4,16 +4,21 @@ import React, {useEffect, useState } from 'react';
 import TopLeftMenu from './Components/TopLeftMenu';
 import TopRightMenu from './Components/TopRightMenu';
 import Footer from './Components/Footer';
+import StartPage from './Components/StartPage';
 import axios from 'axios'; 
+
+
+
 
 
  
 function App() {
+
+
+  
   // //Kod för fetch och display av en medlem ur api. 
   const[member, setMember] = useState(null);
   const[loadingMember, setLoadingMember] = useState(true);
-  const[loadingImage, setLoadingImage] = useState(true);
-  
 
  //useEffect för medlemshämtning
   useEffect(async() => {  
@@ -21,6 +26,8 @@ function App() {
     const response = await fetch("http://localhost:8080/bothniabladet/Bothniabladet_backend/server/api/member/read.php");
     const datainfo = await response.json();
     const[item] = datainfo.data;
+
+
     setMember(item);
     setLoadingMember(false);
   }, []);
@@ -38,23 +45,25 @@ function App() {
   });
 
 
-
   return (
 
     //Visa komponenter
+    
     <React.Fragment>
     <TopLeftMenu/>
     <TopRightMenu/>
+    <StartPage/>
     <Footer/>
-    
+
+
     <div>
-      {loadingMember ? <div> ...laddar medlem </div> : <div>{member.last_name} </div>}  
+      {loadingMember ? <div> ...laddar medlem </div> : <div key={member.ID_member}>{member.last_name} </div>}  
     </div>
 
-  
-
-
     </React.Fragment>
+
+    
+   
     
   );
   

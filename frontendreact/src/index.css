@@ -12,6 +12,7 @@ code {
     monospace;
 }
 
+/* CSS FÖR ALLA SIDOR I APPLIKATIONEN*/
 .topleftmenu{
   background-color:rgba(42, 104, 238, 0.808);
   color: white;
@@ -52,4 +53,10 @@ code {
   color: white;
   position: absolute;
   bottom: 0%;
+}
+
+/* STARTSIDAN*/
+.startpagecontent{
+  background-color: white;
+  color: rgba(42, 104, 238, 0.808);
 }
