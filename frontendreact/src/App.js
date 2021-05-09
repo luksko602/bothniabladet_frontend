@@ -35,25 +35,6 @@ function App() {
     setLoadingMember(false);
   }, []);
 
-  async function getMembers() {
-    let url = 'http://localhost:8080/bothniabladet/Bothniabladet_backend/server/api/member/read.php'
-
-    while(url) {
-      const res = await fetch(url)
-      const data = await res.json()
-
-      for(const item of data.results) {
-        console.log(item.name)
-      }
-
-      url = data.next
-    }
-    return(
-      <h1> Test </h1>
-    )
-  }
-  getMembers().catch(e => console.error('Misslyckades med att hämta medlemmar', e))
-
 
   // // //Fetch av bilder
   var fetchImageAPI = 'http://localhost:8080/bothniabladet/Bothniabladet_backend/server/api/image/read.php';
