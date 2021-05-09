@@ -5,7 +5,8 @@ import TopLeftMenu from './Components/TopLeftMenu';
 import TopRightMenu from './Components/TopRightMenu';
 import Footer from './Components/Footer';
 import StartPage from './Components/StartPage';
-import axios from 'axios'; 
+import axios from 'axios';
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 
 
 
@@ -34,11 +35,26 @@ function App() {
     setLoadingMember(false);
   }, []);
 
+  async function getMembers() {
+    let url = 'http://localhost:8080/bothniabladet/Bothniabladet_backend/server/api/member/read.php'
+
+    while(url) {
+      const res = await fetch(url)
+      const data = await res.json()
+
+      for(const item of data.results) {
+        console.log(item.name)
+      }
+
+      url = data.next
+    }
+    return(
+      <h1> Test </h1>
+    )
+  }
+  getMembers().catch(e => console.error('Misslyckades med att hämta medlemmar', e))
 
 
-
-
-  // const[image, setImage] = useState(null);
   // // //Fetch av bilder
   var fetchImageAPI = 'http://localhost:8080/bothniabladet/Bothniabladet_backend/server/api/image/read.php';
   fetch(fetchImageAPI)
@@ -49,8 +65,8 @@ function App() {
     document.querySelector("body").appendChild(img);
   });
 
-
   return (
+
 
     //Visa komponenter
     
@@ -62,7 +78,6 @@ function App() {
 
     <div id="displayImage">
       <h1> Visa en bild </h1>
-      
     </div>
 
     <div id="displayMember">
